@@ -19,23 +19,88 @@ export default function LineCharts() {
   }, [getData]);
 
   const options = {
+    chart: {
+      zoomType: "x",
+    },
+
     title: {
       text: "Line chart",
     },
+    // ontouchstart 의 의미?
+    subtitle: {
+      text:
+        document.ontouchstart === undefined
+          ? "Click and drag in the plot area to zoom in"
+          : "Pinch the chart to zoom in",
+    },
+
     series: [
       {
-        name: "EC_slab",
-        data: data.map((item) => (item.EC_slab1 + item.EC_slab2) / 2),
+        name: "EC_slab1",
+        data: data.map((item) => item.EC_slab1),
       },
       {
-        name: "WC_slab",
-        data: data.map((item) => (item.WC_slab1 + item.WC_slab2) / 2),
+        name: "EC_slab2",
+        data: data.map((item) => item.EC_slab2),
+      },
+      {
+        name: "EC_drain_PC",
+        data: data.map((item) => item.EC_drain_PC),
+      },
+      {
+        name: "WC_slab1",
+        data: data.map((item) => item.WC_slab1),
+      },
+      {
+        name: "WC_slab2",
+        data: data.map((item) => item.WC_slab2),
       },
       {
         name: "CO2air",
         data: data.map((item) => item.CO2air),
       },
+      {
+        name: "HumDef",
+        data: data.map((item) => item.HumDef),
+      },
+      {
+        name: "Rhair",
+        data: data.map((item) => item.Rhair),
+      },
+      {
+        name: "Tair",
+        data: data.map((item) => item.Tair),
+      },
+      {
+        name: "EnScr",
+        data: data.map((item) => item.EnScr),
+      },
+      {
+        name: "BlackScr",
+        data: data.map((item) => item.BlackScr),
+      },
+      {
+        name: "PipeGrow",
+        data: data.map((item) => item.PipeGrow),
+      },
+      {
+        name: "PipeLow",
+        data: data.map((item) => item.PipeLow),
+      },
+      {
+        name: "Iglob",
+        data: data.map((item) => item.Iglob),
+      },
+      {
+        name: "RadSum",
+        data: data.map((item) => item.RadSum),
+      },
+      {
+        name: "Tout",
+        data: data.map((item) => item.Tout),
+      },
     ],
+
     xAxis: {
       categories: data.map((item) => item.time),
     },
@@ -44,7 +109,11 @@ export default function LineCharts() {
   return (
     <>
       <Container>
-        <HighchartsReact highcharts={Highcharts} options={options} />
+        <HighchartsReact
+          highcharts={Highcharts}
+          constructorType={"chart"}
+          options={options}
+        />
       </Container>
     </>
   );
