@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import LineCharts from "./Components/LineCharts";
 import "antd/dist/antd.css";
 
 export default function Main() {
   return (
     <>
-      <Container />
+      <Container>
+        <LineCharts />
+      </Container>
     </>
   );
 }
