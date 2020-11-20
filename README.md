@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Data Visualization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 구성
 
-## Available Scripts
+프론트엔드 1명
 
-In the project directory, you can run:
+## 📌 사용한 기술
 
-### `npm start`
+- React JS, JavaScript
+- highcharts
+- Styled Components
+- Github
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📌 목표
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### [필수] 차트 기능 구현
 
-### `npm test`
+✔️ 시계열 Line 차트 구현
+✔️ 각 데이터들의 이름, 평균값, 차트에 데이터를 표시할지 말지를 결정해주는 버튼을 포함한 차트 테이블 구현
+✔️ Brush and Zoom 기능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [선택 1] 나의 차트
 
-### `npm run build`
+✔️ 각 json파일의 하나하나의 데이터들 중 원하는 데이터들을 골라 보여 주는 차트 기능 - 즐겨찾기와 같은 기능
+✔️ 즐겨찾기 버튼의 경우 위 차트 테이블에 하나의 column을 추가하여 아이콘 혹은 이미지로 보여 주시기 바랍니다. 또한, 즐겨찾기가 된 데이터와 아닌 데이터의 구분이 되도록 구현해 주시기 바랍니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### [선택 2] 차트 데이터 다운로드
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+✔️ json으로 구현된 차트를 csv형식으로 다운 받을 수 있는 버튼 구현
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### [선택 3] 차트 고도화
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+✔️ 차트 테이블의 순서 drag-and-drop으로 변경할 수 있는 기능
