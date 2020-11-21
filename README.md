@@ -10,6 +10,7 @@
 <li>React JS, JavaScript</li>
 <li>highcharts</li>
 <li>highcharts-react-official</li>
+<li>Redux</li>
 <li>Styled Components</li>
 <li>Github</li>
 </ul>
@@ -19,7 +20,7 @@
 ### [필수] 차트 기능 구현
 
 ✔️ 시계열 Line 차트 구현 **구현 완료** <br>
-✔️ 각 데이터들의 이름, 평균값, 차트에 데이터를 표시할지 말지를 결정해주는 버튼을 포함한 차트 테이블 구현<br>
+✔️ 각 데이터들의 이름, 평균값, 차트에 데이터를 표시할지 말지를 결정해주는 버튼을 포함한 차트 테이블 구현 **구현 완료** <br>
 ✔️ Brush and Zoom 기능 **구현 완료** <br>
 
 ### [선택 1] 나의 차트
