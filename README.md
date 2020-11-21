@@ -38,5 +38,5 @@
 
 ## 📌 실행 방법
 
-✔️ npm install
+✔️ npm install<br>
 ✔️ npm start
