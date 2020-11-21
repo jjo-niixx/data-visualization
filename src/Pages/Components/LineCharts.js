@@ -1,36 +1,28 @@
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { useSelector } from "react-redux";
 import { Button } from "antd";
 import styled from "styled-components";
-import { API_34 } from "../../config";
 
 require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/modules/export-data")(Highcharts);
 
 export default function LineCharts() {
-  const [data, setData] = useState([]);
-
-  const getData = useCallback(() => {
-    return fetch(API_34, { method: "GET" })
-      .then((res) => res.json())
-      .then((res) => setData(res.dataset));
-  }, []);
+  const { data } = useSelector(({ MainReducer: { data } }) => ({ data }));
 
   useEffect(() => {
-    getData();
-  }, [getData]);
+    console.log("select", data);
+  }, [data]);
 
   const options = {
     chart: {
       zoomType: "xy",
     },
-
     title: {
       text: "Line chart",
       align: "left",
     },
-    // ontouchstart 의 의미?
     subtitle: {
       text:
         document.ontouchstart === undefined
@@ -38,19 +30,16 @@ export default function LineCharts() {
           : "Pinch the chart to zoom in",
       align: "left",
     },
-
     xAxis: {
       categories: data.map((item) => item.time),
     },
-
     tooltip: {
       shared: true,
     },
-
     exporting: {
       filename: "chart",
     },
-
+    //series 배열의 코드를 효율적으로 만들 수 있는 방법을 연구해 velog에 업로드하겠습니다.
     series: [
       {
         name: "EC_slab1",
@@ -151,23 +140,3 @@ const Btn = styled(Button)`
   position: absolute;
   right: 0;
 `;
-
-// {
-//   "time": "2020.5.3 0:05",
-//   "EC_slab1": 5.436839,
-//   "EC_slab2": 4.924302,
-//   "EC_drain_PC": 6.33,
-//   "WC_slab1": 67.476,
-//   "WC_slab2": 56.932,
-//   "CO2air": 563.9999996,
-//   "HumDef": 1.600000003,
-//   "Rhair": 90.5,
-//   "Tair": 19.6,
-//   "EnScr": 0,
-//   "BlackScr": 95,
-//   "PipeGrow": 36.50000001,
-//   "PipeLow": 0,
-//   "Iglob": 0,
-//   "RadSum": 0.000217561,
-//   "Tout": 9.80000002
-// }

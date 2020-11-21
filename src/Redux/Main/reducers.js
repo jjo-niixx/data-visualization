@@ -1,26 +1,18 @@
-// 임의로 설정
-
 import actions from "./actions";
-const { DATA, CLICKED } = actions;
+
+const { SET_DATA } = actions;
 
 const INITIAL_STATE = {
   data: [],
-  like: 0,
 };
 
-export default function mainReducer(state = INITIAL_STATE, action) {
+export default function MainReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case DATA:
+    case SET_DATA:
       return {
         ...state,
-        data: action.payload,
+        data: action.data,
       };
-    case CLICKED:
-      return {
-        ...state,
-        like: state.like + 1,
-      };
-
     default:
       return state;
   }
