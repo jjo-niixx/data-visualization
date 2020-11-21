@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { API_34 } from "../../config";
 import "antd/dist/antd.css";
+require("highcharts/modules/export-data")(Highcharts);
 
 export default function LineCharts() {
   const [data, setData] = useState([]);
@@ -106,10 +107,20 @@ export default function LineCharts() {
     },
   };
 
+  const chart = useRef();
+
+  const exportCSV = () => {
+    if (chart && chart.current && chart.current.chart) {
+      chart.current.chart.downloadCSV();
+    }
+  };
+
   return (
     <>
       <Container>
+        <TestBtn onClick={exportCSV}>CSV 파일로 다운 받기</TestBtn>
         <HighchartsReact
+          ref={chart}
           highcharts={Highcharts}
           constructorType={"chart"}
           options={options}
@@ -120,6 +131,8 @@ export default function LineCharts() {
 }
 
 const Container = styled.div``;
+
+const TestBtn = styled.button``;
 
 // {
 //   "time": "2020.5.3 0:05",
