@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useSelector } from "react-redux";
@@ -10,10 +10,6 @@ require("highcharts/modules/export-data")(Highcharts);
 
 export default function LineCharts() {
   const { data } = useSelector(({ MainReducer: { data } }) => ({ data }));
-
-  useEffect(() => {
-    console.log("select", data);
-  }, [data]);
 
   const options = {
     chart: {
@@ -136,7 +132,7 @@ export default function LineCharts() {
 const Container = styled.div``;
 
 const Btn = styled(Button)`
+  position: ${({ type }) => (type ? "absolute" : "")};
+  right: ${({ type }) => (type ? "0" : "")};
   margin: 30px;
-  position: absolute;
-  right: 0;
 `;
