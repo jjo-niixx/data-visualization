@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
-import styled from "styled-components";
-import Highcharts from "highcharts";
+import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { Button } from "antd";
+import styled from "styled-components";
 import { API_34 } from "../../config";
-import "antd/dist/antd.css";
+
+require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/modules/export-data")(Highcharts);
 
 export default function LineCharts() {
@@ -21,11 +23,12 @@ export default function LineCharts() {
 
   const options = {
     chart: {
-      zoomType: "x",
+      zoomType: "xy",
     },
 
     title: {
       text: "Line chart",
+      align: "left",
     },
     // ontouchstart 의 의미?
     subtitle: {
@@ -33,6 +36,19 @@ export default function LineCharts() {
         document.ontouchstart === undefined
           ? "Click and drag in the plot area to zoom in"
           : "Pinch the chart to zoom in",
+      align: "left",
+    },
+
+    xAxis: {
+      categories: data.map((item) => item.time),
+    },
+
+    tooltip: {
+      shared: true,
+    },
+
+    exporting: {
+      filename: "chart",
     },
 
     series: [
@@ -101,10 +117,6 @@ export default function LineCharts() {
         data: data.map((item) => item.Tout),
       },
     ],
-
-    xAxis: {
-      categories: data.map((item) => item.time),
-    },
   };
 
   const chart = useRef();
@@ -118,13 +130,15 @@ export default function LineCharts() {
   return (
     <>
       <Container>
-        <TestBtn onClick={exportCSV}>CSV 파일로 다운 받기</TestBtn>
         <HighchartsReact
           ref={chart}
           highcharts={Highcharts}
           constructorType={"chart"}
           options={options}
         />
+        <Btn type="primary" onClick={exportCSV}>
+          바로 CSV 파일로 다운 받기
+        </Btn>
       </Container>
     </>
   );
@@ -132,7 +146,11 @@ export default function LineCharts() {
 
 const Container = styled.div``;
 
-const TestBtn = styled.button``;
+const Btn = styled(Button)`
+  margin: 30px;
+  position: absolute;
+  right: 0;
+`;
 
 // {
 //   "time": "2020.5.3 0:05",

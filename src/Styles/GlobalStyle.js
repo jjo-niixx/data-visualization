@@ -61,6 +61,7 @@ input,
 button,
 textarea,
 select {
+  cursor: pointer;
   font: inherit;
 }
 
